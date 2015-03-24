@@ -25,6 +25,23 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
 
+###
+# my routes 
+###
+
+@app.route('/games/')
+def games():
+    return render_template('games.html')
+
+@app.route('/game/<gameid>', methods=['GET'])
+def game(gameid):
+    if not (request.method == 'GET'):
+        return render_template('404.html')
+    if gameid == '1':
+       return "game 1"
+    elif gameid == '2':
+       return "game 2"
+
 
 ###
 # The functions below should be applicable to all Flask apps.
